@@ -1,0 +1,62 @@
+TASK_CONFIG:
+  SEED: 0
+  ENVIRONMENT:
+    MAX_EPISODE_STEPS: 5000
+    ITERATOR_OPTIONS:
+      MAX_SCENE_REPEAT_STEPS: 50000
+      SHUFFLE: False
+  SIMULATOR:
+    AGENTS: ['AGENT_0']
+    AGENT_0:
+      SENSORS: ['RGB_SENSOR', 'DEPTH_SENSOR']
+    RGB_SENSOR:
+      WIDTH: 640
+      HEIGHT: 480
+      HFOV: 79
+    DEPTH_SENSOR:
+      WIDTH: 640
+      HEIGHT: 480
+      HFOV: 79
+      MIN_DEPTH: 0.0
+      MAX_DEPTH: 10.0
+    FORWARD_STEP_SIZE: 0.25
+    TURN_ANGLE: 15
+    TILT_ANGLE: 15
+    ACTION_SPACE_CONFIG: "v1"
+    HABITAT_SIM_V0:
+      GPU_DEVICE_ID: 0
+  TASK:
+    TYPE: VLN-v0
+    SUCCESS_DISTANCE: 3.0
+    MEASUREMENTS: ['DISTANCE_TO_GOAL', 'SUCCESS', 'SPL', 'ORACLE_SUCCESS', 'PATH_LENGTH']
+    DISTANCE_TO_GOAL:
+      TYPE: DistanceToGoal
+      DISTANCE_TO: POINT
+    SUCCESS:
+      TYPE: Success
+      SUCCESS_DISTANCE: 3.0
+    SPL:
+      TYPE: SPL
+    ORACLE_SUCCESS:
+      TYPE: OracleSuccess
+    PATH_LENGTH:
+      TYPE: PathLength
+    ACTIONS:
+      STOP:
+        TYPE: StopAction
+      MOVE_FORWARD:
+        TYPE: MoveForwardAction
+      TURN_LEFT:
+        TYPE: TurnLeftAction
+      TURN_RIGHT:
+        TYPE: TurnRightAction
+      LOOK_UP:
+        TYPE: LookUpAction
+      LOOK_DOWN:
+        TYPE: LookDownAction
+  DATASET:
+    TYPE: R2RVLN-v1
+    SPLIT: val_unseen
+    CONTENT_SCENES: ['*']
+    SCENES_DIR: /mnt/data/NaVILA/evaluation/data/scene_datasets
+    DATA_PATH: /mnt/data/InternRobotics/data/vln_ce/r2r/{split}/{split}.json.gz

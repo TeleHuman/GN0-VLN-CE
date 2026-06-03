@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.env
+/.venv/
+/env/
+/venv/
+
+# Data, models, and generated outputs
+data/
+models/
+thirdparty/
+runs/
+outputs/
+dagger_data/
+data_link_manifest.txt
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+.DS_Store
