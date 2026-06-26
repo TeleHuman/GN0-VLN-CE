@@ -40,7 +40,7 @@ conda activate gn0_vln_ce
 conda install -y "pip<26" wheel setuptools
 ```
 
-### 2. Clone and build Habitat-Sim / Habitat in `thirdparty`
+### 2. Clone and build Habitat-Sim / Habitat-Lab in `thirdparty`
 
 ```bash
 cd /path/to/GN0-VLN-CE
@@ -58,6 +58,11 @@ sudo apt-get install -y --no-install-recommends \
     mesa-utils xorg-dev freeglut3-dev
 
 python setup.py install --headless --with-cuda
+
+cd ..
+git clone --branch v0.1.7 https://github.com/facebookresearch/habitat-lab.git
+cd habitat-lab
+pip install -e .
 ```
 
 ### 3. Install PyTorch and Transformers
