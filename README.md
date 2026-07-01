@@ -70,7 +70,7 @@ pip install -e .
 ```bash
 pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
 conda install -y -c conda-forge "pandas<3" av pyarrow orjson ffmpeg
-pip install --ignore-requires-python llamafactory==0.9.4
+pip install "transformers>=4.57.1"
 ```
 
 ### 4. Install `bae`
